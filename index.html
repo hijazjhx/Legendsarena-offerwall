@@ -1,59 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Offerwall Access</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background: #111;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      #start-button {
-        margin-top: 10px;
-        padding: 10px 20px;
-        font-size: 18px;
-        background: #00e676;
-        border: none;
-        color: black;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      #user-input {
-        padding: 10px;
-        font-size: 18px;
-        width: 80%;
-        max-width: 300px;
-        border-radius: 5px;
-        border: none;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Enter Your Username</h2>
-    <input type="text" id="user-input" placeholder="e.g. user_1234" />
-    <button id="start-button">Start</button>
+<head>
+  <title>Enter Username | Legends Arena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f0f0;">
 
-    <script>
-      document.getElementById("start-button").addEventListener("click", () => {
-        const userId = document.getElementById("user-input").value.trim();
-        if (!userId) {
-          alert("Please enter your username.");
-          return;
-        }
+  <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 90%; max-width: 400px; text-align: center;">
+    <h2>Welcome to Legends Arena</h2>
+    <p>Enter your username to start earning coins</p>
+    <input type="text" id="username" placeholder="Enter your username" style="padding: 10px; width: 100%; margin: 15px 0; border-radius: 8px; border: 1px solid #ccc;" />
+    <button onclick="startOfferwall()" style="padding: 10px 20px; background-color: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 16px;">Start</button>
+  </div>
 
-        // ✅ This is the correct PubScale task page link
-        const offerwallURL = `https://wow.pubscale.com/?app_id=85404439&user_id=${encodeURIComponent(userId)}`;
+  <script>
+    function startOfferwall() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter a username");
+        return;
+      }
 
-        window.location.href = offerwallURL;
-      });
-    </script>
-  </body>
+      // Redirect user to offerwall site with user_id
+      const offerwallUrl = `https://legendsarena.github.io/?user_id=${encodeURIComponent(username)}`;
+      window.location.href = offerwallUrl;
+    }
+  </script>
+</body>
 </html>
